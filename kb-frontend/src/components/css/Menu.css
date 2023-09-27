@@ -1,0 +1,18 @@
+.Menu {
+    padding: 5rem;
+    text-align: center;
+    background-color: #282c34;
+    text-decoration: none;
+    color: white;
+    border-radius: 1rem;
+}
+
+.Menu a {
+    text-decoration: none;
+    color: white;
+    transition-duration: 0.25s;
+}
+
+.Menu a:hover {
+    color: #61dafb;
+}
