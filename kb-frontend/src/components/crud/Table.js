@@ -19,6 +19,7 @@ class Table extends React.Component {
             <th key={index}>{column}</th>
         ));
 
+
         let trs = this.props.data.map((item, index) => (
                 <Row item={item} onDelete={this.props.onDelete}></Row>
         ));

@@ -2,6 +2,8 @@ import React from "react";
 
 import Form from "../Form.js";
 import Ingredient from "../../models/Ingredient.js";
+import FreezBe from "../../models/FreezBe.js";
+import Procede from "../../models/Procede.js";
 import Error from "../Error.js";
 
 class CrudCreate extends React.Component {
@@ -15,6 +17,12 @@ class CrudCreate extends React.Component {
         switch (this.props.section) {
             case "ingredient":
                 return new Ingredient("ingredient", this.props.id);
+            
+            case "freezbe":
+                return new FreezBe();
+            case "procede":
+                return new Procede();
+            
             default:
                 return null;
         }

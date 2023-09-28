@@ -10,24 +10,34 @@ class Row extends React.Component {
         super(props);
         this.state = {
             item: this.props.item,
+            tds : []
         };
+        this.fetchTds();
     }
 
+    async fetchTds() {
+        let data = await this.state.item.data();
+        let tds = [];
+        data.map((column, index) => (
+            tds.push(<td key={index}>{column}</td>)
+        ));
+
+        this.setState({tds : tds});
+
+    }
     
 
     
     render() {
         
-
-        const tds = this.props.item.data().map((column, index) => (
-            <td key={index}>{column}</td> 
-        ));
+        
+        
 
         return <tr>
             <td>
             <ShowButton to={this.props.item.show()}></ShowButton>
             </td>
-            {tds}
+            {this.state.tds}
 
             <td>
             <EditButton to={this.props.item.editLink()}></EditButton>

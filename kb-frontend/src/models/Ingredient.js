@@ -7,6 +7,27 @@ class Ingredient {
 
     }
 
+    type(){
+        return "ingredient";
+    }
+
+    formDescriptor(){
+        return {
+            _id : {
+                type : "hidden",
+                value : this._id,
+            },
+            name : {
+                type : "input",
+                value : this.name,
+            },
+            description : {
+                type : "input",
+                value : this.description,
+            },
+        };
+    }
+
     async get(id) {
         try {
           const response = await fetch('http://localhost:3005/ingredient/' + id);
@@ -73,18 +94,30 @@ class Ingredient {
         return resp.json();
     }
 
-    update(){
+    async update(){
        
-        fetch('http://localhost:3005/ingredient/' + this._id, {
+        let resp = await fetch('http://localhost:3005/ingredient/' + this._id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(this)
-        }).then(res => res.json())
-        .then(data => console.log(data));
+        })
         
-        
+        return resp;
+    }
+
+    static async list(){
+        try {
+            const response = await fetch('http://localhost:3005/ingredient/');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            return data.map(ingredient => Ingredient.from_object(ingredient));
+        } catch (error) {
+            throw error;
+        }
     }
 
 }

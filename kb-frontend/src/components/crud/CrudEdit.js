@@ -2,6 +2,8 @@ import React from "react";
 
 import Form from "../Form.js";
 import Ingredient from "../../models/Ingredient.js";
+import FreezBe from "../../models/FreezBe.js";
+import Procede from "../../models/Procede.js";
 
 class CrudEdit extends React.Component {
     constructor(props) {
@@ -18,6 +20,10 @@ class CrudEdit extends React.Component {
             case "ingredient":
                 return new Ingredient("","");
                 break;
+            case "freezbe":
+                return new FreezBe();
+            case "procede":
+                return new Procede();
             default:
                 return null;
         }
@@ -34,7 +40,8 @@ class CrudEdit extends React.Component {
         return (
             <div>
                 <h2>Modifier un {section}</h2>
-            <Form item={this.state.item} itemId={this.props.id} submitLabel='Modifier' onSubmit={this.props.onSubmit}></Form>
+            <Form item={this.state.item} itemId={this.props.id} submitLabel='Modifier' onSubmit={this.props.onSubmit}>
+            </Form>
             </div>
         );
     }

@@ -17,10 +17,16 @@ class Input extends React.Component
 
     render()
     {
+        let label = null;
+        if(this.props.type !== "hidden")
+            label = (<label>{this.state.label}</label>);
+
         return (
-            <div>
-                <label>{this.state.label}</label>
-                <input type="text" value={this.state.value} onChange={this.onChange.bind(this)}/>
+            <div style={{
+                padding: "0.25rem 0.5rem",
+            }}>
+                {label}
+                <input type={this.props.type} value={this.state.value} onChange={this.onChange.bind(this)}/>
             </div>
         );
     }

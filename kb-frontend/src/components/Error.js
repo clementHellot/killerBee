@@ -9,9 +9,10 @@ class Error extends React.Component {
     }
 
     render() {
-    const regex = /^[a-zA-Z0-9 ]+$/;
+    const regex = /^[A-Za-z ]+$/;
+
     if(!regex.test(this.props.error))
-        return (<div></div>);
+        return <div></div>;
 
 
         return <div style={{

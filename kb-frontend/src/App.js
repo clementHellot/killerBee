@@ -2,6 +2,7 @@ import React from 'react'
 
 import HomePanel from './panels/HomePanel.js' // Utilisez l'importation ES6
 import IngredientsPanel from './panels/IngredientsPanel.js' // Utilisez l'importation ES6
+import FreezBePanel from './panels/FreezBePanel.js'
 
 import Header from './components/Header.js'
 import Menu from './components/Menu.js'
@@ -14,6 +15,7 @@ import CrudEdit from './components/crud/Edit.js';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
 import './App.css'
+import ProcedePanel from './panels/ProcedePanel.js'
 
 const menuList = [
     {
@@ -30,13 +32,15 @@ const menuList = [
     },
     {
         name: "FreezBe",
-        link: "/freezbe",
+        link: "/freezbes",
         icon: "fa fa-snowflake-o", // Replace with the appropriate icon class
+        component: FreezBePanel
     },
     {
         name: "Procedés",
         link: "/procedes",
         icon: "fa fa-cogs", // Replace with the appropriate icon class
+        component: ProcedePanel
     },
 
 ];

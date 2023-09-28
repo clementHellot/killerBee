@@ -20,7 +20,10 @@ class Index extends React.Component {
                 alignItems: "center",
             }}>
                 <h2>{this.props.title}</h2>
-                <div>
+                <div
+                style={{
+                    margin: " 0 1rem",
+                }}>
                 <Link to={this.props.create} style={{
                     backgroundColor: "rgb(52,199,89)",
                     border: "none",
